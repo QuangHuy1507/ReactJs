@@ -1,137 +1,170 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
-import Welcome from './components/Welcome';
-import Farewell from './components/Farewell';
-import PriceTag from './components/PriceTag';
-import FruitList from './components/FruitList';
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function Question1() {
   return (
-    <>
-     <div>
-      <Welcome name="Alex" />
-      <Welcome name="Maria" />
-    </div>
     <div>
-      <Welcome name="Alex" />
-      <Farewell />
-      <PriceTag price={100} />
-      <FruitList />
+      <h3>Question 1</h3>
+      <button onClick={() => console.log("Button clicked!")}>
+        Click me (Inline)
+      </button>
     </div>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+  );
 }
 
-export default App
+function Question2() {
+  const handleClick = () => {
+    console.log("Button clicked!");
+  };
+
+  return (
+    <div>
+      <h3>Question 2</h3>
+      <button onClick={handleClick}>Click me (Named Function)</button>
+    </div>
+  );
+}
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h3>Question 3: Counter</h3>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <button onClick={() => setCount(count - 1)}>-1</button>
+    </div>
+  );
+}
+
+function ColorBox() {
+  const [color, setColor] = useState('#ffffff');
+
+  return (
+    <div>
+      <h3>Question 4: Color Box</h3>
+      <input 
+        type="color" 
+        value={color} 
+        onChange={(e) => setColor(e.target.value)} 
+      />
+      <div 
+        style={{ 
+          width: '100px', 
+          height: '100px', 
+          backgroundColor: color, 
+          marginTop: '10px',
+          border: '1px solid #ccc'
+        }} 
+      />
+    </div>
+  );
+}
+
+function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Email:', email);
+    console.log('Password:', password);
+  };
+
+  return (
+    <div>
+      <h3>Question 5: Login Form</h3>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="email" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+}
+
+function Question6() {
+  return (
+    <div>
+      <h3>Question 6: Explanation</h3>
+      <p>
+        <strong>Giải thích:</strong> useState trả về một mảng (Array) gồm 2 phần tử. Dùng ngoặc vuông [] giúp lấy dữ liệu theo đúng thứ tự và tự do đặt tên biến. Nếu dùng ngoặc nhọn {"{}"} (bóc tách Object), bạn bắt buộc phải đặt đúng tên mà React đã quy định.
+      </p>
+    </div>
+  );
+}
+
+function StartGame({ onStart }) {
+  return <button onClick={onStart}>Start Game</button>;
+}
+
+function Game() {
+  const [isStarted, setIsStarted] = useState(false);
+
+  return (
+    <div>
+      <h3>Question 7: Game & StartGame</h3>
+      <p>Trạng thái: {isStarted ? "Game đã bắt đầu!" : "Chưa bắt đầu"}</p>
+      <StartGame onStart={() => setIsStarted(true)} />
+    </div>
+  );
+}
+
+function SuggestionBox() {
+  const [loading, setLoading] = useState(false);
+  const [suggestion, setSuggestion] = useState('');
+
+  const handleGetSuggestion = () => {
+    setLoading(true);
+    setSuggestion('');
+
+    setTimeout(() => {
+      setSuggestion('Hãy dành 10 phút nghỉ ngơi và uống một ly nước!');
+      setLoading(false);
+    }, 1500);
+  };
+
+  return (
+    <div>
+      <h3>Question 8: Suggestion Box</h3>
+      <button onClick={handleGetSuggestion} disabled={loading}>
+        {loading ? 'Loading...' : 'Get Suggestion'}
+      </button>
+      {suggestion && <p>{suggestion}</p>}
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h2>Bài Tập React: State & Event Handling</h2>
+      <hr />
+      <Question1 />
+      <hr />
+      <Question2 />
+      <hr />
+      <Counter />
+      <hr />
+      <ColorBox />
+      <hr />
+      <LoginForm />
+      <hr />
+      <Question6 />
+      <hr />
+      <Game />
+      <hr />
+      <SuggestionBox />
+    </div>
+  );
+}
